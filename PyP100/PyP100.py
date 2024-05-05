@@ -113,18 +113,5 @@ class Metering(Device):
         return self.request("get_energy_data", {"start_timestamp": start_timestamp, "end_timestamp": end_timestamp, "interval": interval.value})
 
 
-class Color(Device):
-    def setBrightness(self, brightness: int):
-        return self._set_device_info({"brightness": brightness})
-
-    def setColorTemp(self, color_temp: int):
-        return self._set_device_info({"color_temp": color_temp})
-
-    def setColor(self, hue, saturation):
-        return self._set_device_info(
-            {"color_temp": 0, "hue": hue, "saturation": saturation}
-        )
-
-
 class P100(Switchable):
     pass
