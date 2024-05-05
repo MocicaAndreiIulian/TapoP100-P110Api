@@ -41,7 +41,7 @@ class AuthProtocol:
 
     def _request_raw(self, path: str, data: bytes, params: dict = None):
         url = f"http://{self.address}/app/{path}"
-        resp = self.session.post(url, data=data, timeout=2, params=params)
+        resp = self.session.post(url, data=data, timeout=10, params=params)
         resp.raise_for_status()
         data = resp.content
         return data
